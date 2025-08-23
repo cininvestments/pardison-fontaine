@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <title>Pardison Fontaine | Meet & Greet 2025</title>
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        scroll-behavior: smooth; /* smooth scroll */
+      }
+      .gradient-bg {
+        background: linear-gradient(135deg, #1d1c1c, #6c63ff);
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(12px);
+        border-radius: 1rem;
+        padding: 2rem;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-950 text-white">
+    <!-- Header -->
+    <header class="flex items-center justify-center py-6 bg-gray-950">
+      <div class="flex items-center space-x-3">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png"
+          alt="Logo"
+          class="w-10 h-10"
+        />
+        <span class="text-2xl font-bold tracking-wide">Pardison Fontaine</span>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="gradient-bg text-center py-20 px-6">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4">🎤 Meet & Greet 2025</h1>
+      <p class="text-lg md:text-xl mb-6">
+        A once-in-a-lifetime VIP experience with Pardison Fontaine.
+      </p>
+      <a
+        href="#tickets"
+        class="bg-white text-gray-900 px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition"
+        >Reserve Ticket</a
+      >
+    </section>
+
+    <!-- About -->
+    <section class="py-16 px-6 max-w-5xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6">About The Event</h2>
+      <p class="text-gray-300 leading-relaxed">
+        Experience an intimate evening with Pardison Fontaine, filled with live
+        performances, exclusive conversations, and a unique opportunity to
+        connect up close with one of the most dynamic voices of our generation.
+      </p>
+    </section>
+
+    <!-- Guidelines -->
+    <section class="py-16 px-6 max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6">Event Guidelines</h2>
+      <ul class="text-gray-300 space-y-3">
+        <li>🎫 Bring your confirmation email for entry.</li>
+        <li>🕐 Arrive at least 30 minutes before start.</li>
+        <li>📸 Personal photography allowed (no pro gear).</li>
+        <li>🚫 No outside food, drinks, or oversized bags.</li>
+        <li>🙏 Respect fellow fans & event staff at all times.</li>
+      </ul>
+    </section>
+
+    <!-- Ticket Form -->
+    <section id="tickets" class="py-16 px-6 bg-gray-900">
+      <div class="max-w-3xl mx-auto glass-card">
+        <h2 class="text-3xl font-bold text-center mb-6">
+          🎟️ Reserve Your Ticket
+        </h2>
+        <form id="ticketForm" class="space-y-4">
+          <input
+            type="text"
+            id="fullName"
+            placeholder="Full Name"
+            class="w-full p-3 rounded bg-gray-800 text-white"
+            required
+          />
+          <input
+            type="email"
+            id="email"
+            placeholder="Email"
+            class="w-full p-3 rounded bg-gray-800 text-white"
+            required
+          />
+          <input
+            type="tel"
+            id="phone"
+            placeholder="Phone Number"
+            class="w-full p-3 rounded bg-gray-800 text-white"
+            required
+          />
+
+          <select
+            id="paymentMethod"
+            class="w-full p-3 rounded bg-gray-800 text-white"
+            required
+          >
+            <option value="">Select Payment Method</option>
+            <option value="btc">Bitcoin (BTC)</option>
+          </select>
+
+          <!-- BTC Section -->
+          <div id="btcDetails" class="hidden bg-gray-800 p-4 rounded">
+            <p class="mb-2">Send your BTC payment to:</p>
+            <img src="btcww.jpg" alt="BTC Wallet QR" class="mx-auto mb-2" />
+            <div class="flex items-center justify-between">
+              <span
+                id="walletAddress"
+                class="text-sm break-words font-mono mr-2"
+                >1Hmh64MHGT6tNFL3ShKcnsmScn2j3nhQMW</span
+              >
+              <button
+                type="button"
+                onclick="copyWallet()"
+                class="bg-indigo-600 hover:bg-indigo-700 px-3 py-1 rounded text-sm"
+              >
+                Copy
+              </button>
+            </div>
+          </div>
+
+          <label class="block text-gray-300">Upload Proof of Payment:</label>
+          <input
+            type="file"
+            id="paymentProof"
+            accept="image/*"
+            class="w-full p-2 rounded bg-gray-800 text-white"
+            required
+          />
+
+          <button
+            type="submit"
+            id="submitBtn"
+            class="w-full bg-indigo-600 hover:bg-indigo-700 py-3 rounded font-semibold transition"
+          >
+            Submit Registration
+          </button>
+        </form>
+        <p id="formMessage" class="text-center mt-4"></p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-8 text-gray-400 text-sm">
+      <p>© 2025 Pardison Fontaine Meet & Greet. All rights reserved.</p>
+    </footer>
+
+    <script>
+      const form = document.getElementById("ticketForm");
+      const message = document.getElementById("formMessage");
+      const paymentMethod = document.getElementById("paymentMethod");
+      const btcDetails = document.getElementById("btcDetails");
+      const submitBtn = document.getElementById("submitBtn");
+
+      // Toggle BTC info
+      paymentMethod.addEventListener("change", () => {
+        btcDetails.classList.toggle("hidden", paymentMethod.value !== "btc");
+      });
+
+      // Copy wallet function
+      function copyWallet() {
+        const wallet = document.getElementById("walletAddress").textContent;
+        navigator.clipboard
+          .writeText(wallet)
+          .then(() => alert("Wallet address copied!"));
+      }
+
+      // Handle form submit
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const fullName = document.getElementById("fullName").value;
+        const email = document.getElementById("email").value;
+        const phone = document.getElementById("phone").value;
+        const paymentMethodValue = paymentMethod.value;
+        const paymentProofFile =
+          document.getElementById("paymentProof").files[0];
+
+        if (!paymentProofFile) {
+          message.textContent = "⚠️ Please upload proof of payment.";
+          message.className = "text-red-400 text-center mt-4";
+          return;
+        }
+
+        // Disable inputs while submitting
+        const inputs = form.querySelectorAll("input, select, button");
+        inputs.forEach((el) => (el.disabled = true));
+        submitBtn.textContent = "Submitting...";
+
+        const reader = new FileReader();
+        reader.readAsDataURL(paymentProofFile);
+        reader.onload = async () => {
+          const paymentProof = reader.result;
+          const data = {
+            fullName,
+            email,
+            phone,
+            paymentMethod: paymentMethodValue,
+            paymentProof,
+          };
+
+          try {
+            const res = await fetch(
+              "https://pardison-server.onrender.com/register",
+              {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data),
+              }
+            );
+
+            const result = await res.json();
+            if (result.success) {
+              message.textContent =
+                "✅ Registration submitted successfully! Details will be sent to your email.";
+              message.className = "text-green-400 text-center mt-4";
+              form.reset();
+              btcDetails.classList.add("hidden");
+            } else {
+              message.textContent = "❌ Failed to submit. Try again.";
+              message.className = "text-red-400 text-center mt-4";
+            }
+          } catch (err) {
+            console.error(err);
+            message.textContent = "❌ Server error.";
+            message.className = "text-red-400 text-center mt-4";
+          } finally {
+            inputs.forEach((el) => (el.disabled = false));
+            submitBtn.textContent = "Submit Registration";
+          }
+        };
+      });
+    </script>
+  </body>
+</html>
